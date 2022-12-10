@@ -9,8 +9,11 @@
   git branch -m main
   ```
 - `cd server` and `npm i`
+- `touch .env` and add `MONGO_URL`, `PORT`, `JWT_SECRET`
 - `cd ../client` and `npm i`
 - `npm start` - will start both client and server at the same time
+
+### TIP: 'Things' is an example of redux-toolkit/fetching data from MongoDB. Change this as needed!
 
 - Client is running on http://localhost:3000
 - Server is running on http://localhost:3001
@@ -18,7 +21,7 @@
 # How this was setup
 
 ## Client
-1. `npm i react-redux @reduxjs/toolkit dotenv react-router-dom concurrently `
+1. `npm i react-redux @reduxjs/toolkit redux-persist dotenv react-router-dom concurrently `
 2. Edit `package.json` to include `"proxy": "http://localhost:3001"` and `"start" : "concurrently \"react-scripts start\" \"cd ../server && nodemon index.js\""`
 3. Edit `index.js`
 4. Create `store` folder and add `authSlice.js`, `index.js`, and `store.js`
