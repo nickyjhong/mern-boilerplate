@@ -1,6 +1,13 @@
 # MERN Boilerplate
 
 ## Instructions
+- Create a new directory and `git init`
+  ```js
+  git remote add boilerplate git@github.com:nickyjhong/mern-boilerplate.git
+  git fetch boilerplate
+  git merge boilerplate/main
+  git branch -m main
+  ```
 - `cd server` and `npm i`
 - `cd ../client` and `npm i`
 - `npm start` - will start both client and server at the same time
