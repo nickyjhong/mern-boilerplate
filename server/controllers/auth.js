@@ -7,7 +7,7 @@ export const register = async (req, res, next) => {
     const {
       firstName,
       lastName,
-      email,
+      username,
       password,
     } = req.body
     
@@ -17,12 +17,18 @@ export const register = async (req, res, next) => {
     const newUser = new User({
       firstName,
       lastName,
-      email,
+      username,
       password: passwordHash,
     })
     const savedUser = await newUser.save();
-    
-    res.status(201).json(savedUser);
+
+    const token = jwt.sign({ id: savedUser._id }, process.env.JWT_SECRET)
+
+    delete savedUser.password;
+    res.status(200).json({ token, savedUser })
+
+
+    // res.status(201).json(savedUser);
   } catch(error) {
     next(error)
   }
